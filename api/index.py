@@ -30,7 +30,7 @@ openai_client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 # Storage for sessions and reports
 sessions = {}
-reports_dir = Path("/tmp/reports")
+reports_dir = Path("reports")
 reports_dir.mkdir(exist_ok=True)
 
 # ============================================================
@@ -2332,7 +2332,6 @@ def list_reports():
     return jsonify({"reports": sorted(reports, key=lambda x: x["date"], reverse=True)})
 
 
-# Vercel serverless - no app.run() needed
-# For local testing: python api/index.py
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+    
